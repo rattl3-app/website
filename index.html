@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rattle - The #1 App for Layoffs and Life Readjustment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'BwModelica';
+            src: url('assets/fonts/BwModelicaSS01-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        :root {
+            --orange: #F57C24;
+            --orange-light: #FF9D4D;
+            --orange-dark: #D96812;
+            --cream: #FDF8F3;
+            --dark: #1A1A1A;
+            --gray: #6B6B6B;
+            --light-gray: #F5F5F5;
+            --gold: #D4AF37;
+            --gold-light: #F4E4BA;
+            --gold-dark: #996515;
+            --red: #E63946;
+            --red-light: #FF6B6B;
+            --red-dark: #C1121F;
+            --blue: #4361EE;
+            --blue-light: #7B93FF;
+            --blue-dark: #3A0CA3;
+            --green: #2DC653;
+            --green-light: #57E077;
+            --green-dark: #1B9E3E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'BwModelica', sans-serif;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 248, 243, 0.9);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.75rem 5%;
+            box-shadow: 0 4px 30px rgba(245, 124, 36, 0.1);
+        }
+
+        .nav-logo {
+            height: 55px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 4px 20px rgba(245, 124, 36, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 124, 36, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(245, 124, 36, 0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-text {
+            animation: slideInRight 1s ease-out;
+            order: 2;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(245, 124, 36, 0.1);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--orange);
+            margin-bottom: 1.5rem;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 124, 36, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(245, 124, 36, 0); }
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            right: 0;
+            height: 0.15em;
+            background: rgba(245, 124, 36, 0.2);
+            z-index: -1;
+            animation: highlightGrow 1s ease-out 0.5s both;
+        }
+
+        @keyframes highlightGrow {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInLeft 1s ease-out 0.3s both;
+            order: 1;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .phone-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .phone-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 650px;
+            filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.15));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-shapes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--orange-light), transparent);
+            top: 10%;
+            left: 10%;
+            animation: orbit 15s linear infinite;
+        }
+
+        .shape-2 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--orange), transparent);
+            bottom: 20%;
+            right: 5%;
+            animation: orbit 20s linear infinite reverse;
+        }
+
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange-dark), transparent);
+            top: 60%;
+            left: 15%;
+            animation: orbit 12s linear infinite;
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 5%;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-header h2 {
+            color: white;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(245, 124, 36, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-source {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* About Section - Swimming Baby */
+        .about {
+            padding: 8rem 5%;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-tagline {
+            font-size: 1.3rem !important;
+            color: var(--orange) !important;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .about-feature p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--gray);
+        }
+
+        /* Swimming Pool Scene */
+        .swimming-scene {
+            position: relative;
+            height: 550px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .pool-background {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pool-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 150, 200, 0.1) 0%, rgba(0, 100, 150, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        .swimming-baby {
+            position: absolute;
+            width: 500px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+            animation: babyFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes babyFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-2deg); }
+            50% { transform: translate(-50%, -50%) translateY(-20px) rotate(2deg); }
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: bubbleRise 8s ease-in-out infinite;
+        }
+
+        .bubble-1 { width: 20px; height: 20px; left: 30%; bottom: 10%; animation-delay: 0s; }
+        .bubble-2 { width: 15px; height: 15px; left: 50%; bottom: 5%; animation-delay: 2s; }
+        .bubble-3 { width: 25px; height: 25px; left: 70%; bottom: 15%; animation-delay: 4s; }
+        .bubble-4 { width: 12px; height: 12px; left: 40%; bottom: 20%; animation-delay: 1s; }
+        .bubble-5 { width: 18px; height: 18px; left: 60%; bottom: 8%; animation-delay: 3s; }
+
+        @keyframes bubbleRise {
+            0% { 
+                transform: translateY(0) scale(1); 
+                opacity: 0.5; 
+            }
+            50% { 
+                opacity: 0.7; 
+            }
+            100% { 
+                transform: translateY(-450px) scale(0.3); 
+                opacity: 0; 
+            }
+        }
+
+        .pool-caption {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            z-index: 10;
+            white-space: nowrap;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .pool-caption .highlight-orange {
+            color: var(--orange);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(245, 124, 36, 0.5);
+        }
+
+        /* App Modes Section */
+        .app-modes {
+            padding: 8rem 5%;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mode-card {
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Layoff Mode - Red */
+        .mode-layoff {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE3E3 100%);
+            border: 2px solid rgba(230, 57, 70, 0.2);
+        }
+
+        .mode-layoff::before {
+            background: linear-gradient(90deg, var(--red-dark), var(--red), var(--red-light));
+        }
+
+        .mode-layoff:hover {
+            box-shadow: 0 30px 60px rgba(230, 57, 70, 0.2);
+        }
+
+        .mode-layoff .mode-icon {
+            background: linear-gradient(135deg, var(--red), var(--red-light));
+        }
+
+        .mode-layoff .mode-tag {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--red);
+        }
+
+        .mode-layoff h3 {
+            color: var(--red-dark);
+        }
+
+        /* Jobs Mode - Blue */
+        .mode-jobs {
+            background: linear-gradient(135deg, #F0F4FF 0%, #E0E7FF 100%);
+            border: 2px solid rgba(67, 97, 238, 0.2);
+        }
+
+        .mode-jobs::before {
+            background: linear-gradient(90deg, var(--blue-dark), var(--blue), var(--blue-light));
+        }
+
+        .mode-jobs:hover {
+            box-shadow: 0 30px 60px rgba(67, 97, 238, 0.2);
+        }
+
+        .mode-jobs .mode-icon {
+            background: linear-gradient(135deg, var(--blue), var(--blue-light));
+        }
+
+        .mode-jobs .mode-tag {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--blue);
+        }
+
+        .mode-jobs h3 {
+            color: var(--blue-dark);
+        }
+
+        /* Earn Mode - Green */
+        .mode-earn {
+            background: linear-gradient(135deg, #F0FFF4 0%, #DCFFE4 100%);
+            border: 2px solid rgba(45, 198, 83, 0.2);
+        }
+
+        .mode-earn::before {
+            background: linear-gradient(90deg, var(--green-dark), var(--green), var(--green-light));
+        }
+
+        .mode-earn:hover {
+            box-shadow: 0 30px 60px rgba(45, 198, 83, 0.2);
+        }
+
+        .mode-earn .mode-icon {
+            background: linear-gradient(135deg, var(--green), var(--green-light));
+        }
+
+        .mode-earn .mode-tag {
+            background: rgba(45, 198, 83, 0.1);
+            color: var(--green);
+        }
+
+        .mode-earn h3 {
+            color: var(--green-dark);
+        }
+
+        .mode-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .mode-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .mode-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mode-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .mode-features {
+            list-style: none;
+        }
+
+        .mode-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .mode-features li::before {
+            content: '✓';
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .mode-layoff .mode-features li::before {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--red);
+        }
+
+        .mode-jobs .mode-features li::before {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--blue);
+        }
+
+        .mode-earn .mode-features li::before {
+            background: rgba(45, 198, 83, 0.1);
+            color: var(--green);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 5%;
+            position: relative;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(245, 124, 36, 0.1);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--orange);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* BOSS MODE Section */
+        .boss-mode {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #0D0D0D 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .boss-mode::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+
+        .boss-mode::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .boss-mode .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .boss-mode .section-tag {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #1A1A1A;
+            font-weight: 700;
+            padding: 0.6rem 1.5rem;
+            animation: goldShine 3s ease-in-out infinite;
+        }
+
+        @keyframes goldShine {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        }
+
+        .boss-mode .section-header h2 {
+            color: white;
+            position: relative;
+        }
+
+        .boss-mode .section-header h2 .gold-text {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .boss-mode .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .boss-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .boss-card {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.95));
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .boss-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+            background-size: 200% 100%;
+            animation: goldGradient 3s linear infinite;
+        }
+
+        @keyframes goldGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .boss-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .boss-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .boss-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .boss-card:hover .boss-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .boss-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .boss-card p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .boss-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #1A1A1A;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .crown-decoration {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .steps-line {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--orange), transparent);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            color: white;
+            box-shadow: 0 10px 40px rgba(245, 124, 36, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px dashed var(--orange);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .step:hover .step-number::after {
+            opacity: 1;
+            animation: spinBorder 10s linear infinite;
+        }
+
+        @keyframes spinBorder {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-email {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .cta-email input {
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            width: 300px;
+            max-width: 100%;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .cta-email input:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--orange);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+        }
+
+        .cta-note {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: comingSoonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes comingSoonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            height: 45px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 0;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .phone-container img {
+                max-height: 450px;
+            }
+
+            .features-grid, .boss-features, .modes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .steps-line {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .swimming-scene {
+                order: -1;
+                height: 450px;
+            }
+
+            .swimming-baby {
+                width: 380px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features-grid, .boss-features, .modes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .swimming-scene {
+                height: 400px;
+            }
+
+            .swimming-baby {
+                width: 320px;
+            }
+
+            .pool-caption {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-email {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-email input {
+                width: 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <img src="assets/images/logo.webp" alt="Rattle" class="nav-logo">
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#modes">App Modes</a>
+            <a href="#boss-mode">Boss Mode</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#signup" class="btn btn-primary">Sign Up for Updates</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span></span>
+                    Coming Soon
+                </div>
+                <h1>The #1 App for <span class="highlight">Layoffs</span> and Life Readjustment</h1>
+                <p>Navigate career transitions, manage your finances, and get AI-powered coaching to land your next opportunity faster.</p>
+                <div class="hero-buttons">
+                    <a href="#signup" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Sign Up for Updates
+                    </a>
+                    <a href="mailto:info@rattl3.com" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-container">
+                    <img src="assets/images/phone.png" alt="Rattle App Interface">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-header fade-in">
+            <h2>The Reality of Today's Job Market</h2>
+            <p>Real data that shows why Rattle is needed more than ever</p>
+        </div>
+        <div class="stats-container">
+            <div class="stat-card scale-in">
+                <div class="stat-number"><span class="count-up" data-target="127">0</span>K+</div>
+                <div class="stat-label">Tech Workers Laid Off in 2025</div>
+                <div class="stat-source">Source: Crunchbase</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number"><span class="count-up" data-target="23">0</span></div>
+                <div class="stat-label">Weeks Average Unemployment Duration</div>
+                <div class="stat-source">Source: Bureau of Labor Statistics</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number"><span class="count-up" data-target="53">0</span>%</div>
+                <div class="stat-label">Submitted 50+ Applications to Get Hired</div>
+                <div class="stat-source">Source: Zety Research</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number"><span class="count-up" data-target="40">0</span>%</div>
+                <div class="stat-label">Of Americans Have Been Laid Off Once</div>
+                <div class="stat-source">Source: DemandSage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Swimming Baby -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text slide-in-left">
+                <span class="section-tag">About Rattle</span>
+                <h2>Built for People Navigating Career Transitions</h2>
+                <p>Rattle was created with one mission: to empower professionals facing career uncertainty. Whether you've been laid off, are considering a career change, or simply want to take control of your professional future, we're here to help.</p>
+                <p class="about-tagline">"Feeling like you're in over your head? We'll teach you to swim." 🏊‍♂️</p>
+                <p>Our AI-powered platform combines cutting-edge technology with practical career guidance, giving you the tools and support you need to land your next opportunity faster.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🎯</div>
+                        <div>
+                            <h4>Mission-Driven</h4>
+                            <p>Helping people thrive after layoffs</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🤖</div>
+                        <div>
+                            <h4>AI-Powered</h4>
+                            <p>Smart guidance, personalized for you</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">💪</div>
+                        <div>
+                            <h4>All-in-One</h4>
+                            <p>Jobs, budget, coaching in one app</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">❤️</div>
+                        <div>
+                            <h4>Human-Centered</h4>
+                            <p>Built with empathy and care</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swimming-scene slide-in-right">
+                <img src="assets/images/water.jpg" alt="Underwater scene" class="pool-background">
+                <div class="pool-overlay"></div>
+                <img src="assets/images/baby.png" alt="Baby CEO swimming" class="swimming-baby">
+                <div class="bubble bubble-1"></div>
+                <div class="bubble bubble-2"></div>
+                <div class="bubble bubble-3"></div>
+                <div class="bubble bubble-4"></div>
+                <div class="bubble bubble-5"></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- App Modes Section -->
+    <section class="app-modes" id="modes">
+        <div class="section-header fade-in">
+            <span class="section-tag">Three Powerful Modes</span>
+            <h2>One App. Three Ways to Win.</h2>
+            <p>Rattle adapts to wherever you are in your journey—whether you're navigating a layoff, hunting for jobs, or building new income streams.</p>
+        </div>
+        <div class="modes-grid">
+            <!-- Layoff Mode -->
+            <div class="mode-card mode-layoff fade-in">
+                <div class="mode-icon">🚨</div>
+                <span class="mode-tag">Emergency Mode</span>
+                <h3>Layoff Mode</h3>
+                <p>Just got the news? We'll help you understand your severance, find assistance resources, and create an action plan fast.</p>
+                <ul class="mode-features">
+                    <li>Severance Package Scanner</li>
+                    <li>Unemployment Benefits Guide</li>
+                    <li>Emergency Budget Planner</li>
+                    <li>Assistance Resources Finder</li>
+                </ul>
+            </div>
+
+            <!-- Jobs Mode -->
+            <div class="mode-card mode-jobs fade-in">
+                <div class="mode-icon">💼</div>
+                <span class="mode-tag">Career Mode</span>
+                <h3>Jobs Mode</h3>
+                <p>Ready to land your next role? Our AI-powered tools help you build winning resumes, craft cover letters, and find the perfect opportunities.</p>
+                <ul class="mode-features">
+                    <li>AI Resume Builder</li>
+                    <li>Cover Letter Generator</li>
+                    <li>Smart Job Search</li>
+                    <li>Interview Prep Coach</li>
+                </ul>
+            </div>
+
+            <!-- Earn Mode -->
+            <div class="mode-card mode-earn fade-in">
+                <div class="mode-icon">💵</div>
+                <span class="mode-tag">Hustle Mode</span>
+                <h3>Earn Mode</h3>
+                <p>Need cash while you search? Discover gig opportunities, quick-pay jobs, and side hustles matched to your skills.</p>
+                <ul class="mode-features">
+                    <li>Gig Opportunity Finder</li>
+                    <li>Quick Cash Jobs</li>
+                    <li>Freelance Matchmaker</li>
+                    <li>Side Hustle Ideas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header fade-in">
+            <span class="section-tag">Features</span>
+            <h2>Everything You Need to Bounce Back</h2>
+            <p>From AI-powered career coaching to budget tracking, Rattle gives you the tools to turn a layoff into your next big opportunity.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Career Coach</h3>
+                <p>Get personalized guidance on job search strategies, interview prep, and career transitions—available anytime you need it.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💼</div>
+                <h3>Smart Job Matching</h3>
+                <p>Our AI analyzes your skills and experience to surface the most relevant opportunities from thousands of listings.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📊</div>
+                <h3>Budget Tracker</h3>
+                <p>Stay on top of your finances during transitions with smart budgeting tools designed for income uncertainty.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📋</div>
+                <h3>Task Management</h3>
+                <p>Keep your job search organized with built-in task lists, reminders, and progress tracking.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💡</div>
+                <h3>Layoff Resources</h3>
+                <p>Access curated guides on severance negotiation, unemployment benefits, COBRA, and more.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💰</div>
+                <h3>Side Income Ideas</h3>
+                <p>Explore freelancing opportunities and passive income streams to diversify your earnings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOSS MODE Section -->
+    <section class="boss-mode" id="boss-mode">
+        <div class="section-header fade-in">
+            <span class="section-tag">👑 Premium Feature</span>
+            <h2>Introducing <span class="gold-text">Boss Mode</span></h2>
+            <p>Ready to stop job hunting and start empire building? Boss Mode gives you everything you need to launch and grow your own business.</p>
+        </div>
+        <div class="boss-features">
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">AI-Powered</div>
+                <div class="boss-icon">🎨</div>
+                <h3>Image Generator</h3>
+                <p>Create stunning visuals for your brand with our AI image generator. Product photos, social media content, and more—no design skills needed.</p>
+            </div>
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">AI-Powered</div>
+                <div class="boss-icon">📄</div>
+                <h3>Flyer & Marketing Creator</h3>
+                <p>Design professional flyers, brochures, and marketing materials in seconds. Perfect for promoting your new venture.</p>
+            </div>
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">AI-Powered</div>
+                <div class="boss-icon">✨</div>
+                <h3>Logo & Icon Designer</h3>
+                <p>Generate unique logos and app icons that capture your brand identity. Unlimited iterations until it's perfect.</p>
+            </div>
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">Database</div>
+                <div class="boss-icon">🔍</div>
+                <h3>Grant Search Engine</h3>
+                <p>Discover grants you actually qualify for. Our smart search filters through thousands of opportunities to find your matches.</p>
+            </div>
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">Database</div>
+                <div class="boss-icon">👼</div>
+                <h3>Angel Investor Finder</h3>
+                <p>Connect with angel investors who fund businesses like yours. Search by industry, stage, check size, and location.</p>
+            </div>
+            <div class="boss-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="boss-badge">Coming Soon</div>
+                <div class="boss-icon">🚀</div>
+                <h3>Business Plan Builder</h3>
+                <p>AI-assisted business plan creation that investors actually want to read. Pitch decks included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header fade-in">
+            <span class="section-tag">How It Works</span>
+            <h2>Your Path Forward in 4 Steps</h2>
+            <p>Getting started with Rattle takes just minutes. Here's how to begin your career comeback.</p>
+        </div>
+        <div class="steps-container">
+            <div class="steps-line"></div>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>Download & Sign Up</h4>
+                    <p>Get the app and create your free account in under 2 minutes.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>Tell Us Your Story</h4>
+                    <p>Share your background, skills, and career goals with our AI.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>Get Your Game Plan</h4>
+                    <p>Receive a personalized roadmap with actionable daily tasks.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>Land Your Next Role</h4>
+                    <p>Execute your plan with AI coaching support every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="signup">
+        <div class="cta-content fade-in">
+            <div class="coming-soon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Coming Soon
+            </div>
+            <h2>Be the First to Know When We Launch</h2>
+            <p>Sign up for updates and get early access to Rattle when it's ready.</p>
+            <form class="cta-email" action="mailto:info@rattl3.com" method="get" enctype="text/plain">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Notify Me
+                </button>
+            </form>
+            <p class="cta-note">Or email us directly at <a href="mailto:info@rattl3.com" style="color: white; text-decoration: underline;">info@rattl3.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/images/logo.webp" alt="Rattle" class="footer-logo">
+                <p>Your AI-powered career command center. Navigate layoffs, land opportunities, and take control of your professional future.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#modes">App Modes</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#boss-mode">Boss Mode</a></li>
+                    <li><a href="#signup">Get Updates</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="mailto:info@rattl3.com">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@rattl3.com">info@rattl3.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Rattle. All rights reserved.</span>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll-based navigation styling
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger counter animation if it's a stat card
+                    const counter = entry.target.querySelector('.count-up');
+                    if (counter && !counter.classList.contains('counted')) {
+                        animateCounter(counter);
+                        counter.classList.add('counted');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .scale-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Stagger animation delays for grid items
+        document.querySelectorAll('.features-grid .feature-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        document.querySelectorAll('.boss-features .boss-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+        });
+
+        document.querySelectorAll('.modes-grid .mode-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        document.querySelectorAll('.stats-container .stat-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        document.querySelectorAll('.steps .step').forEach((step, i) => {
+            step.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        // Parallax effect for shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, i) => {
+                const speed = (i + 1) * 0.1;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
