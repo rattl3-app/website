@@ -1,0 +1,271 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - img "Rattle" [ref=e3]
+    - button [ref=e4] [cursor=pointer]
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: Coming Soon
+      - 'heading "The #1 App for Layoffs and Life Readjustment" [level=1] [ref=e13]':
+        - text: "The #1 App for"
+        - generic [ref=e14]: Layoffs
+        - text: and Life Readjustment
+      - paragraph [ref=e15]: Navigate career transitions, manage your finances, and get AI-powered coaching to land your next opportunity faster.
+      - generic [ref=e16]:
+        - link "Sign Up for Updates" [ref=e17] [cursor=pointer]:
+          - /url: "#signup"
+          - img [ref=e18]
+          - text: Sign Up for Updates
+        - link "Contact Us" [ref=e21] [cursor=pointer]:
+          - /url: mailto:info@rattl3.com
+    - img "Rattle App Interface" [ref=e24]
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - heading "The Reality of Today's Job Market" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Real data that shows why Rattle is needed more than ever
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: 0K+
+        - generic [ref=e32]: Tech Workers Laid Off in 2025
+        - generic [ref=e33]: "Source: Crunchbase"
+      - generic [ref=e34]:
+        - generic [ref=e35]: "0"
+        - generic [ref=e36]: Weeks Average Unemployment Duration
+        - generic [ref=e37]: "Source: Bureau of Labor Statistics"
+      - generic [ref=e38]:
+        - generic [ref=e39]: 0%
+        - generic [ref=e40]: Submitted 50+ Applications to Get Hired
+        - generic [ref=e41]: "Source: Zety Research"
+      - generic [ref=e42]:
+        - generic [ref=e43]: 0%
+        - generic [ref=e44]: Of Americans Have Been Laid Off Once
+        - generic [ref=e45]: "Source: DemandSage"
+  - generic [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: About Rattle
+      - heading "Built for People Navigating Career Transitions" [level=2] [ref=e50]
+      - paragraph [ref=e51]: "Rattle was created with one mission: to empower professionals facing career uncertainty. Whether you've been laid off, are considering a career change, or simply want to take control of your professional future, we're here to help."
+      - paragraph [ref=e52]: "\"Feeling like you're in over your head? We'll teach you to swim.\" 🏊‍♂️"
+      - paragraph [ref=e53]: Our AI-powered platform combines cutting-edge technology with practical career guidance, giving you the tools and support you need to land your next opportunity faster.
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: 🎯
+          - generic [ref=e57]:
+            - heading "Mission-Driven" [level=4] [ref=e58]
+            - paragraph [ref=e59]: Helping people thrive after layoffs
+        - generic [ref=e60]:
+          - generic [ref=e61]: 🤖
+          - generic [ref=e62]:
+            - heading "AI-Powered" [level=4] [ref=e63]
+            - paragraph [ref=e64]: Smart guidance, personalized for you
+        - generic [ref=e65]:
+          - generic [ref=e66]: 💪
+          - generic [ref=e67]:
+            - heading "All-in-One" [level=4] [ref=e68]
+            - paragraph [ref=e69]: Jobs, budget, coaching in one app
+        - generic [ref=e70]:
+          - generic [ref=e71]: ❤️
+          - generic [ref=e72]:
+            - heading "Human-Centered" [level=4] [ref=e73]
+            - paragraph [ref=e74]: Built with empathy and care
+    - generic [ref=e75]:
+      - img "Underwater scene" [ref=e76]
+      - img "Baby CEO swimming" [ref=e77]
+  - generic [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]: Three Powerful Modes
+      - heading "One App. Three Ways to Win." [level=2] [ref=e86]
+      - paragraph [ref=e87]: Rattle adapts to wherever you are in your journey—whether you're navigating a layoff, hunting for jobs, or building new income streams.
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]: 🚨
+        - generic [ref=e91]: Emergency Mode
+        - heading "Layoff Mode" [level=3] [ref=e92]
+        - paragraph [ref=e93]: Just got the news? We'll help you understand your severance, find assistance resources, and create an action plan fast.
+        - list [ref=e94]:
+          - listitem [ref=e95]: ✓ Severance Package Scanner
+          - listitem [ref=e96]: ✓ Unemployment Benefits Guide
+          - listitem [ref=e97]: ✓ Emergency Budget Planner
+          - listitem [ref=e98]: ✓ Assistance Resources Finder
+      - generic [ref=e99]:
+        - generic [ref=e100]: 💼
+        - generic [ref=e101]: Career Mode
+        - heading "Jobs Mode" [level=3] [ref=e102]
+        - paragraph [ref=e103]: Ready to land your next role? Our AI-powered tools help you build winning resumes, craft cover letters, and find the perfect opportunities.
+        - list [ref=e104]:
+          - listitem [ref=e105]: ✓ AI Resume Builder
+          - listitem [ref=e106]: ✓ Cover Letter Generator
+          - listitem [ref=e107]: ✓ Smart Job Search
+          - listitem [ref=e108]: ✓ Interview Prep Coach
+      - generic [ref=e109]:
+        - generic [ref=e110]: 💵
+        - generic [ref=e111]: Hustle Mode
+        - heading "Earn Mode" [level=3] [ref=e112]
+        - paragraph [ref=e113]: Need cash while you search? Discover gig opportunities, quick-pay jobs, and side hustles matched to your skills.
+        - list [ref=e114]:
+          - listitem [ref=e115]: ✓ Gig Opportunity Finder
+          - listitem [ref=e116]: ✓ Quick Cash Jobs
+          - listitem [ref=e117]: ✓ Freelance Matchmaker
+          - listitem [ref=e118]: ✓ Side Hustle Ideas
+  - generic [ref=e119]:
+    - generic [ref=e120]:
+      - generic [ref=e121]: Shop Gear
+      - heading "Featured RATTLƎ Items" [level=2] [ref=e122]
+      - paragraph [ref=e123]: Upgrade your workspace and wardrobe with our latest collection from the shop.
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - img "Gloss Poster" [ref=e127]
+        - generic [ref=e128]:
+          - heading "Gloss Poster — RATTL3 Baby Business" [level=3] [ref=e129]
+          - paragraph [ref=e130]: $14.99
+          - link "View Product" [ref=e131] [cursor=pointer]:
+            - /url: https://shop.rattl3.com/products/gloss-poster-rattl3-baby-business-underwater-design
+      - generic [ref=e132]:
+        - img "Graphic Tee" [ref=e134]
+        - generic [ref=e135]:
+          - heading "Corporate Baby RATTL3 Graphic Tee" [level=3] [ref=e136]
+          - paragraph [ref=e137]: $24.99
+          - link "View Product" [ref=e138] [cursor=pointer]:
+            - /url: https://shop.rattl3.com/products/corporate-baby-rattl3-graphic-tee
+      - generic [ref=e139]:
+        - img "Plush Teddy" [ref=e141]
+        - generic [ref=e142]:
+          - heading "Custom Logo Plush Teddy Bear" [level=3] [ref=e143]
+          - paragraph [ref=e144]: $45.48
+          - link "View Product" [ref=e145] [cursor=pointer]:
+            - /url: https://shop.rattl3.com/products/brown-plush-teddy-bear-with-custom-logo-t-shirt-cute-branded-gift
+      - generic [ref=e146]:
+        - img "Pocket Flask" [ref=e148]
+        - generic [ref=e149]:
+          - heading "6oz Stainless Steel Flask" [level=3] [ref=e150]
+          - paragraph [ref=e151]: $24.99
+          - link "View Product" [ref=e152] [cursor=pointer]:
+            - /url: https://shop.rattl3.com/products/6oz-stainless-steel-flask-orange-rattle-logo-pocket-flask
+    - link "Shop All Items" [ref=e154] [cursor=pointer]:
+      - /url: https://shop.rattl3.com
+  - generic [ref=e155]:
+    - generic [ref=e156]:
+      - generic [ref=e157]: 👑 Premium Feature
+      - heading "Introducing Boss Mode" [level=2] [ref=e158]
+      - paragraph [ref=e159]: Ready to stop job hunting and start empire building? Boss Mode gives you everything you need to launch and grow your own business.
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - generic [ref=e162]: 👑
+        - generic [ref=e163]: AI-Powered
+        - generic [ref=e164]: 🎨
+        - heading "Image Generator" [level=3] [ref=e165]
+        - paragraph [ref=e166]: Create stunning visuals for your brand with our AI image generator. Product photos, social media content, and more—no design skills needed.
+      - generic [ref=e167]:
+        - generic [ref=e168]: 👑
+        - generic [ref=e169]: AI-Powered
+        - generic [ref=e170]: 📄
+        - heading "Flyer & Marketing Creator" [level=3] [ref=e171]
+        - paragraph [ref=e172]: Design professional flyers, brochures, and marketing materials in seconds. Perfect for promoting your new venture.
+      - generic [ref=e173]:
+        - generic [ref=e174]: 👑
+        - generic [ref=e175]: AI-Powered
+        - generic [ref=e176]: ✨
+        - heading "Logo & Icon Designer" [level=3] [ref=e177]
+        - paragraph [ref=e178]: Generate unique logos and app icons that capture your brand identity. Unlimited iterations until it's perfect.
+      - generic [ref=e179]:
+        - generic [ref=e180]: 👑
+        - generic [ref=e181]: Database
+        - generic [ref=e182]: 🔍
+        - heading "Grant Search Engine" [level=3] [ref=e183]
+        - paragraph [ref=e184]: Discover grants you actually qualify for. Our smart search filters through thousands of opportunities to find your matches.
+      - generic [ref=e185]:
+        - generic [ref=e186]: 👑
+        - generic [ref=e187]: Database
+        - generic [ref=e188]: 👼
+        - heading "Angel Investor Finder" [level=3] [ref=e189]
+        - paragraph [ref=e190]: Connect with angel investors who fund businesses like yours. Search by industry, stage, check size, and location.
+      - generic [ref=e191]:
+        - generic [ref=e192]: 👑
+        - generic [ref=e193]: Coming Soon
+        - generic [ref=e194]: 🚀
+        - heading "Business Plan Builder" [level=3] [ref=e195]
+        - paragraph [ref=e196]: AI-assisted business plan creation that investors actually want to read. Pitch decks included.
+  - generic [ref=e197]:
+    - generic [ref=e198]:
+      - generic [ref=e199]: How It Works
+      - heading "Your Path Forward in 4 Steps" [level=2] [ref=e200]
+      - paragraph [ref=e201]: Getting started with Rattle takes just minutes. Here's how to begin your career comeback.
+    - generic [ref=e203]:
+      - generic [ref=e204]:
+        - generic [ref=e205]: "1"
+        - heading "Download & Sign Up" [level=4] [ref=e206]
+        - paragraph [ref=e207]: Get the app and create your free account in under 2 minutes.
+      - generic [ref=e208]:
+        - generic [ref=e209]: "2"
+        - heading "Tell Us Your Story" [level=4] [ref=e210]
+        - paragraph [ref=e211]: Share your background, skills, and career goals with our AI.
+      - generic [ref=e212]:
+        - generic [ref=e213]: "3"
+        - heading "Get Your Game Plan" [level=4] [ref=e214]
+        - paragraph [ref=e215]: Receive a personalized roadmap with actionable daily tasks.
+      - generic [ref=e216]:
+        - generic [ref=e217]: "4"
+        - heading "Land Your Next Role" [level=4] [ref=e218]
+        - paragraph [ref=e219]: Execute your plan with AI coaching support every step of the way.
+  - generic [ref=e221]:
+    - generic [ref=e222]:
+      - img [ref=e223]
+      - text: Coming Soon
+    - heading "Be the First to Know When We Launch" [level=2] [ref=e226]
+    - paragraph [ref=e227]: Sign up for updates and get early access to Rattle when it's ready.
+    - generic [ref=e228]:
+      - textbox "Enter your email address" [ref=e229]
+      - button "Notify Me" [ref=e230] [cursor=pointer]:
+        - img [ref=e231]
+        - text: Notify Me
+    - paragraph [ref=e234]:
+      - text: Or email us directly at
+      - link "info@rattl3.com" [ref=e235] [cursor=pointer]:
+        - /url: mailto:info@rattl3.com
+  - contentinfo [ref=e236]:
+    - generic [ref=e237]:
+      - generic [ref=e238]:
+        - img "Rattle" [ref=e239]
+        - paragraph [ref=e240]: Your AI-powered career command center. Navigate layoffs, land opportunities, and take control of your professional future.
+      - generic [ref=e241]:
+        - heading "Product" [level=4] [ref=e242]
+        - list [ref=e243]:
+          - listitem [ref=e244]:
+            - link "App Modes" [ref=e245] [cursor=pointer]:
+              - /url: "#modes"
+          - listitem [ref=e246]:
+            - link "Boss Mode" [ref=e247] [cursor=pointer]:
+              - /url: "#boss-mode"
+          - listitem [ref=e248]:
+            - link "Get Updates" [ref=e249] [cursor=pointer]:
+              - /url: "#signup"
+      - generic [ref=e250]:
+        - heading "Company" [level=4] [ref=e251]
+        - list [ref=e252]:
+          - listitem [ref=e253]:
+            - link "About Us" [ref=e254] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e255]:
+            - link "Contact" [ref=e256] [cursor=pointer]:
+              - /url: mailto:info@rattl3.com
+      - generic [ref=e257]:
+        - heading "Contact" [level=4] [ref=e258]
+        - list [ref=e259]:
+          - listitem [ref=e260]:
+            - link "info@rattl3.com" [ref=e261] [cursor=pointer]:
+              - /url: mailto:info@rattl3.com
+    - generic [ref=e262]:
+      - generic [ref=e263]: © 2025 Rattle. All rights reserved.
+      - generic [ref=e264]:
+        - link "Twitter" [ref=e265] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e266]
+        - link "LinkedIn" [ref=e268] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e269]
+        - link "Instagram" [ref=e271] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e272]
+```
