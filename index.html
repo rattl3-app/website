@@ -17,11 +17,11 @@
         }
 
         :root {
-            --orange: #F57C24;
-            --orange-light: #FF9D4D;
-            --orange-dark: #D96812;
+            --orange: #FF6B35;
+            --orange-light: #FF8C42;
+            --orange-dark: #CC552A;
             --cream: #FDF8F3;
-            --dark: #1A1A1A;
+            --dark: #121212;
             --gray: #6B6B6B;
             --light-gray: #F5F5F5;
             --gold: #D4AF37;
@@ -78,7 +78,7 @@
 
         nav.scrolled {
             padding: 0.75rem 5%;
-            box-shadow: 0 4px 30px rgba(245, 124, 36, 0.1);
+            box-shadow: 0 4px 30px rgba(255, 107, 53, 0.1);
         }
 
         .nav-logo {
@@ -136,13 +136,13 @@
         .btn-primary {
             background: var(--orange);
             color: white;
-            box-shadow: 0 4px 20px rgba(245, 124, 36, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(245, 124, 36, 0.4);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
         }
 
         .btn-secondary {
@@ -173,7 +173,7 @@
             left: -20%;
             width: 80%;
             height: 150%;
-            background: radial-gradient(ellipse at center, rgba(245, 124, 36, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
             animation: pulse 8s ease-in-out infinite;
         }
 
@@ -207,7 +207,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: rgba(245, 124, 36, 0.1);
+            background: rgba(255, 107, 53, 0.1);
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -217,8 +217,8 @@
         }
 
         @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 124, 36, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(245, 124, 36, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
         }
 
         .hero-badge span {
@@ -254,7 +254,7 @@
             left: 0;
             right: 0;
             height: 0.15em;
-            background: rgba(245, 124, 36, 0.2);
+            background: rgba(255, 107, 53, 0.2);
             z-index: -1;
             animation: highlightGrow 1s ease-out 0.5s both;
         }
@@ -415,7 +415,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(245, 124, 36, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
             transition: left 0.6s ease;
         }
 
@@ -610,7 +610,7 @@
 
         .pool-caption .highlight-orange {
             color: var(--orange);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(245, 124, 36, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 107, 53, 0.5);
         }
 
         /* App Modes Section */
@@ -820,7 +820,7 @@
         .section-tag {
             display: inline-block;
             padding: 0.5rem 1rem;
-            background: rgba(245, 124, 36, 0.1);
+            background: rgba(255, 107, 53, 0.1);
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -1131,7 +1131,7 @@
             font-weight: bold;
             margin: 0 auto 1.5rem;
             color: white;
-            box-shadow: 0 10px 40px rgba(245, 124, 36, 0.4);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
@@ -1513,6 +1513,7 @@
 
             .swimming-baby {
                 width: 320px;
+                top: 40%;
             }
 
             .pool-caption {
@@ -1599,6 +1600,8 @@
             <a href="#modes">App Modes</a>
             <a href="#boss-mode">Boss Mode</a>
             <a href="#how-it-works">How It Works</a>
+            <a href="https://shop.rattl3.com" target="_blank">Shop</a>
+            <a href="https://shop.rattl3.com/cart" target="_blank">Cart</a>
             <a href="#signup" class="btn btn-primary">Sign Up for Updates</a>
         </div>
         <button class="mobile-menu-btn">
@@ -1779,47 +1782,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-header fade-in">
-            <span class="section-tag">Features</span>
-            <h2>Everything You Need to Bounce Back</h2>
-            <p>From AI-powered career coaching to budget tracking, Rattle gives you the tools to turn a layoff into your next big opportunity.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🤖</div>
-                <h3>AI Career Coach</h3>
-                <p>Get personalized guidance on job search strategies, interview prep, and career transitions—available anytime you need it.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💼</div>
-                <h3>Smart Job Matching</h3>
-                <p>Our AI analyzes your skills and experience to surface the most relevant opportunities from thousands of listings.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📊</div>
-                <h3>Budget Tracker</h3>
-                <p>Stay on top of your finances during transitions with smart budgeting tools designed for income uncertainty.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📋</div>
-                <h3>Task Management</h3>
-                <p>Keep your job search organized with built-in task lists, reminders, and progress tracking.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💡</div>
-                <h3>Layoff Resources</h3>
-                <p>Access curated guides on severance negotiation, unemployment benefits, COBRA, and more.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <h3>Side Income Ideas</h3>
-                <p>Explore freelancing opportunities and passive income streams to diversify your earnings.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- BOSS MODE Section -->
     <section class="boss-mode" id="boss-mode">
         <div class="section-header fade-in">
@@ -1944,7 +1906,6 @@
                 <h4>Product</h4>
                 <ul>
                     <li><a href="#modes">App Modes</a></li>
-                    <li><a href="#features">Features</a></li>
                     <li><a href="#boss-mode">Boss Mode</a></li>
                     <li><a href="#signup">Get Updates</a></li>
                 </ul>
@@ -1984,8 +1945,8 @@
             </div>
         </div>
     </footer>
-
     <script>
+
         // Scroll-based navigation styling
         const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => {
