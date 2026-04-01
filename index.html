@@ -201,6 +201,7 @@
             height: 150%;
             background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
             animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @keyframes pulse {
@@ -1136,8 +1137,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            overflow: hidden;
             transition: transform 0.5s ease;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-card:hover .product-image {
@@ -1869,8 +1876,8 @@
                 <div class="crown-decoration">👑</div>
                 <div class="studio-badge">AI-Powered</div>
                 <div class="studio-icon">📄</div>
-                <h3>Document scanner</h3>
-                <p>Scan and digitize career documents instantly.</p>
+                <h3>Document and severance scanner</h3>
+                <p>Scan documents and severance packages instantly.</p>
             </div>
             <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
@@ -1897,7 +1904,7 @@
                 <div class="crown-decoration">👑</div>
                 <div class="studio-badge">Media</div>
                 <div class="studio-icon">🖼️</div>
-                <h3>Stock Images</h3>
+                <h3>AI Generated Stock</h3>
                 <p>Access a library of high-quality images for your marketing.</p>
             </div>
             <div class="studio-card fade-in">
@@ -1934,53 +1941,62 @@
     <!-- Shop Gear Section -->
     <section class="shop-gear" id="shop-gear">
         <div class="section-header fade-in">
-            <span class="section-tag">Official Merchandise</span>
-            <h2>Shop <span class="highlight">Gear</span></h2>
-            <p>Rep the brand and support the movement with our exclusive collection of professional and lifestyle gear.</p>
+            <span class="section-tag">Shop Gear</span>
+            <h2>Featured <span class="highlight">RATTLƎ</span> Items</h2>
+            <p>Upgrade your workspace and wardrobe with our latest collection from the shop.</p>
         </div>
+
         <div class="shop-grid">
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">👔</div>
-                <div class="product-info">
-                    <h3>Shattered Suits Shirt</h3>
-                    <div class="product-price">$35.00</div>
+            <!-- Product 1 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/5926393921775785635_2048.jpg?v=1769403470&width=1000" alt="Gloss Poster">
                 </div>
-            </a>
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">🔗</div>
                 <div class="product-info">
-                    <h3>LinkedOut Shirt</h3>
-                    <div class="product-price">$35.00</div>
+                    <h3>Gloss Poster — RATTL3 Baby Business</h3>
+                    <p class="product-price">$14.99</p>
+                    <a href="https://shop.rattl3.com/products/gloss-poster-rattl3-baby-business-underwater-design" target="_blank" class="btn btn-primary">View Product</a>
                 </div>
-            </a>
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">🧢</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/12027946114913726858_2048.jpg?v=1769404862&width=800" alt="Graphic Tee">
+                </div>
                 <div class="product-info">
-                    <h3>Rattle Dad Hat</h3>
-                    <div class="product-price">$28.00</div>
+                    <h3>Corporate Baby RATTL3 Graphic Tee</h3>
+                    <p class="product-price">$24.99</p>
+                    <a href="https://shop.rattl3.com/products/corporate-baby-rattl3-graphic-tee" target="_blank" class="btn btn-primary">View Product</a>
                 </div>
-            </a>
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">📱</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/17545715943983795493_2048.jpg?v=1769220500&width=400" alt="Plush Teddy">
+                </div>
                 <div class="product-info">
-                    <h3>CEO Tech Case</h3>
-                    <div class="product-price">$25.00</div>
+                    <h3>Custom Logo Plush Teddy Bear</h3>
+                    <p class="product-price">$45.48</p>
+                    <a href="https://shop.rattl3.com/products/brown-plush-teddy-bear-with-custom-logo-t-shirt-cute-branded-gift" target="_blank" class="btn btn-primary">View Product</a>
                 </div>
-            </a>
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">☕</div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/15378666731710996316_2048.jpg?v=1769218465&width=400" alt="Pocket Flask">
+                </div>
                 <div class="product-info">
-                    <h3>Side Hustle Mug</h3>
-                    <div class="product-price">$18.00</div>
+                    <h3>6oz Stainless Steel Flask</h3>
+                    <p class="product-price">$24.99</p>
+                    <a href="https://shop.rattl3.com/products/6oz-stainless-steel-flask-orange-rattle-logo-pocket-flask" target="_blank" class="btn btn-primary">View Product</a>
                 </div>
-            </a>
-            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
-                <div class="product-image">👕</div>
-                <div class="product-info">
-                    <h3>Classic Rattle Tee</h3>
-                    <div class="product-price">$32.00</div>
-                </div>
-            </a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://shop.rattl3.com" target="_blank" class="btn btn-secondary">Shop All Items</a>
         </div>
     </section>
 
