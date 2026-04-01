@@ -87,7 +87,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -154,6 +154,32 @@
         .btn-secondary:hover {
             background: var(--dark);
             color: white;
+        }
+
+        .app-badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta .app-badges {
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .app-badge {
+            height: 48px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-badge:hover {
+            transform: translateY(-3px);
+        }
+
+        .app-badge img {
+            height: 100%;
+            width: auto;
         }
 
         /* Hero Section */
@@ -910,15 +936,15 @@
             font-size: 0.95rem;
         }
 
-        /* BOSS MODE Section */
-        .boss-mode {
+        /* STUDIO MODE Section */
+        .studio-mode-section {
             padding: 8rem 5%;
             background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #0D0D0D 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .boss-mode::before {
+        .studio-mode-section::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -927,19 +953,19 @@
                 radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
         }
 
-        .boss-mode::after {
+        .studio-mode-section::after {
             content: '';
             position: absolute;
             inset: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        .boss-mode .section-header {
+        .studio-mode-section .section-header {
             position: relative;
             z-index: 1;
         }
 
-        .boss-mode .section-tag {
+        .studio-mode-section .section-tag {
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             color: #1A1A1A;
             font-weight: 700;
@@ -952,23 +978,23 @@
             50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
         }
 
-        .boss-mode .section-header h2 {
+        .studio-mode-section .section-header h2 {
             color: white;
             position: relative;
         }
 
-        .boss-mode .section-header h2 .gold-text {
+        .studio-mode-section .section-header h2 .gold-text {
             background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .boss-mode .section-header p {
+        .studio-mode-section .section-header p {
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .boss-features {
+        .studio-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -978,7 +1004,7 @@
             z-index: 1;
         }
 
-        .boss-card {
+        .studio-card {
             background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.95));
             border-radius: 24px;
             padding: 2.5rem;
@@ -988,7 +1014,7 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .boss-card::before {
+        .studio-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1005,7 +1031,7 @@
             100% { background-position: 200% 50%; }
         }
 
-        .boss-card::after {
+        .studio-card::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -1013,7 +1039,7 @@
             pointer-events: none;
         }
 
-        .boss-card:hover {
+        .studio-card:hover {
             transform: translateY(-10px) scale(1.02);
             border-color: rgba(212, 175, 55, 0.5);
             box-shadow: 
@@ -1021,7 +1047,7 @@
                 0 0 40px rgba(212, 175, 55, 0.15);
         }
 
-        .boss-icon {
+        .studio-icon {
             width: 70px;
             height: 70px;
             border-radius: 20px;
@@ -1037,12 +1063,12 @@
             transition: all 0.3s ease;
         }
 
-        .boss-card:hover .boss-icon {
+        .studio-card:hover .studio-icon {
             transform: scale(1.1) rotate(-5deg);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
         }
 
-        .boss-card h3 {
+        .studio-card h3 {
             font-size: 1.4rem;
             margin-bottom: 0.75rem;
             color: white;
@@ -1050,7 +1076,7 @@
             z-index: 1;
         }
 
-        .boss-card p {
+        .studio-card p {
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.7;
             font-size: 0.95rem;
@@ -1058,7 +1084,7 @@
             z-index: 1;
         }
 
-        .boss-badge {
+        .studio-badge {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
@@ -1071,6 +1097,67 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             z-index: 2;
+        }
+
+        /* Shop Gear Section */
+        .shop-gear {
+            padding: 8rem 5%;
+            background: white;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--cream);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            border-color: var(--orange);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .crown-decoration {
@@ -1247,23 +1334,6 @@
             font-size: 0.9rem;
         }
 
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            animation: comingSoonPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes comingSoonPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
 
         /* Footer */
         footer {
@@ -1405,7 +1475,7 @@
                 margin-right: auto;
             }
 
-            .hero-buttons {
+            .hero-buttons, .app-badges {
                 justify-content: center;
             }
 
@@ -1413,7 +1483,7 @@
                 max-height: 450px;
             }
 
-            .features-grid, .boss-features, .modes-grid {
+            .features-grid, .studio-features, .modes-grid, .shop-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -1487,7 +1557,7 @@
                 font-size: 2.2rem;
             }
 
-            .features-grid, .boss-features, .modes-grid {
+            .features-grid, .studio-features, .modes-grid, .shop-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1598,7 +1668,8 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#modes">App Modes</a>
-            <a href="#boss-mode">Boss Mode</a>
+            <a href="#studio-mode">Studio Mode</a>
+            <a href="#shop-gear">Shop Gear</a>
             <a href="#how-it-works">How It Works</a>
             <a href="https://shop.rattl3.com" target="_blank">Shop</a>
             <a href="https://shop.rattl3.com/cart" target="_blank">Cart</a>
@@ -1620,12 +1691,16 @@
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">
-                    <span></span>
-                    Coming Soon
-                </div>
                 <h1>The #1 App for <span class="highlight">Layoffs</span> and Life Readjustment</h1>
                 <p>Navigate career transitions, manage your finances, and get AI-powered coaching to land your next opportunity faster.</p>
+                <div class="app-badges">
+                    <a href="https://apps.apple.com/us/app/rattl%C7%9D/id6759893774" class="app-badge" target="_blank">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1738713600" alt="Download on the App Store">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.rattl3.app" class="app-badge" target="_blank">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 70px; margin: -11px;">
+                    </a>
+                </div>
                 <div class="hero-buttons">
                     <a href="#signup" class="btn btn-primary">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1782,56 +1857,130 @@
         </div>
     </section>
 
-    <!-- BOSS MODE Section -->
-    <section class="boss-mode" id="boss-mode">
+    <!-- STUDIO MODE Section -->
+    <section class="studio-mode-section" id="studio-mode">
         <div class="section-header fade-in">
             <span class="section-tag">👑 Premium Feature</span>
-            <h2>Introducing <span class="gold-text">Boss Mode</span></h2>
-            <p>Ready to stop job hunting and start empire building? Boss Mode gives you everything you need to launch and grow your own business.</p>
+            <h2>Introducing <span class="gold-text">Studio Mode</span></h2>
+            <p>Ready to stop job hunting and start empire building? Studio Mode gives you everything you need to launch and grow your own business.</p>
         </div>
-        <div class="boss-features">
-            <div class="boss-card fade-in">
+        <div class="studio-features">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">AI-Powered</div>
-                <div class="boss-icon">🎨</div>
-                <h3>Image Generator</h3>
-                <p>Create stunning visuals for your brand with our AI image generator. Product photos, social media content, and more—no design skills needed.</p>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">📄</div>
+                <h3>Document scanner</h3>
+                <p>Scan and digitize career documents instantly.</p>
             </div>
-            <div class="boss-card fade-in">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">AI-Powered</div>
-                <div class="boss-icon">📄</div>
-                <h3>Flyer & Marketing Creator</h3>
-                <p>Design professional flyers, brochures, and marketing materials in seconds. Perfect for promoting your new venture.</p>
+                <div class="studio-badge">Business</div>
+                <div class="studio-icon">💼</div>
+                <h3>Business starter kit</h3>
+                <p>Everything you need to launch your LLC or freelance career.</p>
             </div>
-            <div class="boss-card fade-in">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">AI-Powered</div>
-                <div class="boss-icon">✨</div>
-                <h3>Logo & Icon Designer</h3>
-                <p>Generate unique logos and app icons that capture your brand identity. Unlimited iterations until it's perfect.</p>
+                <div class="studio-badge">Free</div>
+                <div class="studio-icon">📱</div>
+                <h3>FREE QR Codes in any plan</h3>
+                <p>Custom QR codes for your brand, included in every plan.</p>
             </div>
-            <div class="boss-card fade-in">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">Database</div>
-                <div class="boss-icon">🔍</div>
-                <h3>Grant Search Engine</h3>
-                <p>Discover grants you actually qualify for. Our smart search filters through thousands of opportunities to find your matches.</p>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">✨</div>
+                <h3>Logos</h3>
+                <p>Professional AI-generated logos for your business identity.</p>
             </div>
-            <div class="boss-card fade-in">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">Database</div>
-                <div class="boss-icon">👼</div>
-                <h3>Angel Investor Finder</h3>
-                <p>Connect with angel investors who fund businesses like yours. Search by industry, stage, check size, and location.</p>
+                <div class="studio-badge">Media</div>
+                <div class="studio-icon">🖼️</div>
+                <h3>Stock Images</h3>
+                <p>Access a library of high-quality images for your marketing.</p>
             </div>
-            <div class="boss-card fade-in">
+            <div class="studio-card fade-in">
                 <div class="crown-decoration">👑</div>
-                <div class="boss-badge">Coming Soon</div>
-                <div class="boss-icon">🚀</div>
-                <h3>Business Plan Builder</h3>
-                <p>AI-assisted business plan creation that investors actually want to read. Pitch decks included.</p>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">👤</div>
+                <h3>Pro Headshots</h3>
+                <p>Generate professional corporate headshots using AI.</p>
             </div>
+            <div class="studio-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">🎨</div>
+                <h3>Product Images</h3>
+                <p>Create stunning product photography without a studio.</p>
+            </div>
+            <div class="studio-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">🔄</div>
+                <h3>Image Restoration</h3>
+                <p>Restore old or low-quality photos for your portfolio.</p>
+            </div>
+            <div class="studio-card fade-in">
+                <div class="crown-decoration">👑</div>
+                <div class="studio-badge">AI-Powered</div>
+                <div class="studio-icon">📽️</div>
+                <h3>Thumbnail generator</h3>
+                <p>Eye-catching thumbnails for your videos and social posts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Gear Section -->
+    <section class="shop-gear" id="shop-gear">
+        <div class="section-header fade-in">
+            <span class="section-tag">Official Merchandise</span>
+            <h2>Shop <span class="highlight">Gear</span></h2>
+            <p>Rep the brand and support the movement with our exclusive collection of professional and lifestyle gear.</p>
+        </div>
+        <div class="shop-grid">
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">👔</div>
+                <div class="product-info">
+                    <h3>Shattered Suits Shirt</h3>
+                    <div class="product-price">$35.00</div>
+                </div>
+            </a>
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">🔗</div>
+                <div class="product-info">
+                    <h3>LinkedOut Shirt</h3>
+                    <div class="product-price">$35.00</div>
+                </div>
+            </a>
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">🧢</div>
+                <div class="product-info">
+                    <h3>Rattle Dad Hat</h3>
+                    <div class="product-price">$28.00</div>
+                </div>
+            </a>
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <h3>CEO Tech Case</h3>
+                    <div class="product-price">$25.00</div>
+                </div>
+            </a>
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">☕</div>
+                <div class="product-info">
+                    <h3>Side Hustle Mug</h3>
+                    <div class="product-price">$18.00</div>
+                </div>
+            </a>
+            <a href="https://shop.rattl3.com" class="product-card fade-in" target="_blank">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Classic Rattle Tee</h3>
+                    <div class="product-price">$32.00</div>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -1872,12 +2021,13 @@
     <!-- CTA Section -->
     <section class="cta" id="signup">
         <div class="cta-content fade-in">
-            <div class="coming-soon-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                Coming Soon
+            <div class="app-badges">
+                <a href="https://apps.apple.com/us/app/rattl%C7%9D/id6759893774" class="app-badge" target="_blank">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1738713600" alt="Download on the App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.rattl3.app" class="app-badge" target="_blank">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 70px; margin: -11px;">
+                </a>
             </div>
             <h2>Be the First to Know When We Launch</h2>
             <p>Sign up for updates and get early access to Rattle when it's ready.</p>
@@ -1906,7 +2056,7 @@
                 <h4>Product</h4>
                 <ul>
                     <li><a href="#modes">App Modes</a></li>
-                    <li><a href="#boss-mode">Boss Mode</a></li>
+                    <li><a href="#studio-mode">Studio Mode</a></li>
                     <li><a href="#signup">Get Updates</a></li>
                 </ul>
             </div>
@@ -2019,12 +2169,16 @@
             card.style.transitionDelay = `${i * 0.1}s`;
         });
 
-        document.querySelectorAll('.boss-features .boss-card').forEach((card, i) => {
+        document.querySelectorAll('.studio-features .studio-card').forEach((card, i) => {
             card.style.transitionDelay = `${i * 0.1}s`;
         });
 
         document.querySelectorAll('.modes-grid .mode-card').forEach((card, i) => {
             card.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        document.querySelectorAll('.shop-grid .product-card').forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
         });
 
         document.querySelectorAll('.stats-container .stat-card').forEach((card, i) => {
