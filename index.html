@@ -1666,6 +1666,18 @@
             opacity: 1;
             transform: translateX(0);
         }
+
+        .hero-glow {
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -1680,7 +1692,7 @@
             <a href="#how-it-works">How It Works</a>
             <a href="https://shop.rattl3.com" target="_blank">Shop</a>
             <a href="https://shop.rattl3.com/cart" target="_blank">Cart</a>
-            <a href="#signup" class="btn btn-primary">Sign Up for Updates</a>
+            <a href="#signup" class="btn btn-primary">Get the App</a>
         </div>
         <button class="mobile-menu-btn">
             <span></span>
@@ -1696,6 +1708,7 @@
             <div class="shape shape-2"></div>
             <div class="shape shape-3"></div>
         </div>
+        <div class="hero-glow"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1>The #1 App for <span class="highlight">Layoffs</span> and Life Readjustment</h1>
@@ -1714,7 +1727,7 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                        Sign Up for Updates
+                        Get the App
                     </a>
                     <a href="mailto:info@rattl3.com" class="btn btn-secondary">Contact Us</a>
                 </div>
@@ -1869,7 +1882,7 @@
         <div class="section-header fade-in">
             <span class="section-tag">👑 Premium Feature</span>
             <h2>Introducing <span class="gold-text">Studio Mode</span></h2>
-            <p>Ready to stop job hunting and start empire building? Studio Mode gives you everything you need to launch and grow your own business.</p>
+            <p>Ready to stop job hunting and start empire building? Studio Mode gives you everything you need to build and grow your own business.</p>
         </div>
         <div class="studio-features">
             <div class="studio-card fade-in">
@@ -1950,6 +1963,30 @@
             <!-- Product 1 -->
             <div class="product-card fade-in">
                 <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/3519247267360681679_2048.jpg?v=1770688790&width=1000" alt="Black Shattered Suits Graphic Tee">
+                </div>
+                <div class="product-info">
+                    <h3>Black Shattered Suits Graphic Tee</h3>
+                    <p class="product-price">$24.99</p>
+                    <a href="https://shop.rattl3.com/products/black-shattered-suits-graphic-tee" target="_blank" class="btn btn-primary">View Product</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/6383652842070752935_2048.jpg?v=1770619059&width=800" alt="LinkedOut Classic T-Shirt">
+                </div>
+                <div class="product-info">
+                    <h3>LinkedOut Classic T-Shirt</h3>
+                    <p class="product-price">$24.99</p>
+                    <a href="https://shop.rattl3.com/products/linkedout-classic-t-shirt" target="_blank" class="btn btn-primary">View Product</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card fade-in">
+                <div class="product-image">
                     <img src="https://shop.rattl3.com/cdn/shop/files/5926393921775785635_2048.jpg?v=1769403470&width=1000" alt="Gloss Poster">
                 </div>
                 <div class="product-info">
@@ -1959,7 +1996,7 @@
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 4 -->
             <div class="product-card fade-in">
                 <div class="product-image">
                     <img src="https://shop.rattl3.com/cdn/shop/files/12027946114913726858_2048.jpg?v=1769404862&width=800" alt="Graphic Tee">
@@ -1971,19 +2008,19 @@
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 5 -->
             <div class="product-card fade-in">
                 <div class="product-image">
-                    <img src="https://shop.rattl3.com/cdn/shop/files/17545715943983795493_2048.jpg?v=1769220500&width=400" alt="Plush Teddy">
+                    <img src="https://shop.rattl3.com/cdn/shop/files/17545715943983795493_2048.jpg?v=1770619376&width=400" alt="Plush Teddy">
                 </div>
                 <div class="product-info">
                     <h3>Custom Logo Plush Teddy Bear</h3>
-                    <p class="product-price">$45.48</p>
+                    <p class="product-price">$34.99</p>
                     <a href="https://shop.rattl3.com/products/brown-plush-teddy-bear-with-custom-logo-t-shirt-cute-branded-gift" target="_blank" class="btn btn-primary">View Product</a>
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 6 -->
             <div class="product-card fade-in">
                 <div class="product-image">
                     <img src="https://shop.rattl3.com/cdn/shop/files/15378666731710996316_2048.jpg?v=1769218465&width=400" alt="Pocket Flask">
@@ -2045,19 +2082,26 @@
                     <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 70px; margin: -11px;">
                 </a>
             </div>
-            <h2>Be the First to Know When We Launch</h2>
-            <p>Sign up for updates and get early access to Rattle when it's ready.</p>
-            <form class="cta-email" action="mailto:info@rattl3.com" method="get" enctype="text/plain">
-                <input type="email" name="email" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-primary">
+            <h2>Get Rattle Today</h2>
+            <p>Take control of your career and start your next chapter with the Rattle app.</p>
+            <div class="cta-email">
+                <a href="https://apps.apple.com/us/app/rattl%C7%9D/id6759893774" class="btn btn-primary" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    Notify Me
-                </button>
-            </form>
-            <p class="cta-note">Or email us directly at <a href="mailto:info@rattl3.com" style="color: white; text-decoration: underline;">info@rattl3.com</a></p>
+                    Download on iOS
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.rattl3.app" class="btn btn-primary" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Download on Android
+                </a>
+            </div>
+            <p class="cta-note">Have questions? Email us at <a href="mailto:info@rattl3.com" style="color: white; text-decoration: underline;">info@rattl3.com</a></p>
         </div>
     </section>
 
@@ -2073,7 +2117,7 @@
                 <ul>
                     <li><a href="#modes">App Modes</a></li>
                     <li><a href="#studio-mode">Studio Mode</a></li>
-                    <li><a href="#signup">Get Updates</a></li>
+                    <li><a href="#signup">Get the App</a></li>
                 </ul>
             </div>
             <div class="footer-column">
