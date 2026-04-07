@@ -1,0 +1,42 @@
+App Name: Rattle (RATTLƎ)
+Company: Rattle
+Website: https://rattl3.com
+Shop: https://shop.rattl3.com
+Contact: info@rattl3.com
+
+Mission:
+Rattle is an AI-powered career command center designed to empower professionals facing career uncertainty. Whether you've been laid off, are considering a career change, or simply want to take control of your professional future, Rattle provides the tools and support needed to land your next opportunity faster.
+
+Core Features:
+
+1. Layoff Mode (Emergency Mode)
+- Severance Package Scanner
+- Unemployment Benefits Guide
+- Emergency Budget Planner
+- Assistance Resources Finder
+
+2. Jobs Mode (Career Mode)
+- AI Resume Builder
+- Cover Letter Generator
+- Smart Job Search
+- Interview Prep Coach
+
+3. Earn Mode (Hustle Mode)
+- Gig Opportunity Finder
+- Quick Cash Jobs
+- Freelance Matchmaker
+- Side Hustle Ideas
+
+4. Studio Mode (Premium Features)
+- Document and severance scanner
+- Business starter kit
+- FREE QR Codes in any plan
+- AI-generated Logos
+- AI Generated Stock Images
+- Professional AI Headshots
+- AI Product Photography
+- Image Restoration
+- Thumbnail generator
+
+Availability:
+Available on the iOS App Store and Google Play Store.
